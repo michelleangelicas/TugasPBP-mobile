@@ -4,12 +4,12 @@
 # Tugas 7
 
 ## Apa perbedaan utama antara stateless dan stateful widget dalam konteks pengembangan aplikasi Flutter?
-Stateless Widget:
-Tidak memiliki state yang dapat berubah seiring berjalannya waktu.
-Dibangun sekali dan tidak akan berubah kecuali jika input eksternal berubah (misal, parent widget membangun kembali).
-Stateful Widget:
-Memiliki state yang dapat berubah, dan dapat memicu ulang pembangunan widget.
-Cocok untuk widget yang interaktif dimana data dapat berubah karena interaksi pengguna atau operasi lainnya.
+### Stateless Widget:
+* Tidak memiliki state yang dapat berubah seiring berjalannya waktu.
+* Dibangun sekali dan tidak akan berubah kecuali jika input eksternal berubah (misal, parent widget membangun kembali).
+### Stateful Widget:
+* Memiliki state yang dapat berubah, dan dapat memicu ulang pembangunan widget.
+* Cocok untuk widget yang interaktif dimana data dapat berubah karena interaksi pengguna atau operasi lainnya.
 
 ## Sebutkan seluruh widget yang kamu gunakan untuk menyelesaikan tugas ini dan jelaskan fungsinya masing-masing.
 
@@ -76,7 +76,8 @@ Cocok untuk widget yang interaktif dimana data dapat berubah karena interaksi pe
 ## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)
 Membuat proyek flutter baru dengan cara `flutter create` lalu di dalam direktori tersebut coba `flutter run` dan saya run di Chrome. 
 
-Menambahkan tombol-tombol tersebut dengan `List<ShopItem>` yang isinya `ShopItem()` untuk setiap tombolnya
+Menambahkan tombol-tombol tersebut dengan `List<ShopItem>` yang isinya `ShopItem()` untuk setiap tombolnya. 
+
 Memunculkan Snackbar dengan cara menambahkan widget build yang isinya ada ScaffoldMessenger yang berisi content text tersebut ketika diklik (memakai onTap)
 
 Implementasi warna yang berbeda untuk setiap tombolnya dengan cara menambahkan atribut `color` dengan tipe data `Color` di class `ShopItem`, lalu menambahkan color juga di `List<ShopItem>`, lalu mengubah baris color pada widget build sehingga menjadi `item.color`.
