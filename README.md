@@ -74,9 +74,11 @@ Cocok untuk widget yang interaktif dimana data dapat berubah karena interaksi pe
      - Menampilkan pesan ringan di bagian bawah layar.
 
 ## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)
-Membuat proyek flutter baru dengan cara `flutter create` lalu di dalam direktori tersebtu coba `flutter run` dan saya run di Chrome. 
+Membuat proyek flutter baru dengan cara `flutter create` lalu di dalam direktori tersebut coba `flutter run` dan saya run di Chrome. 
+
 Menambahkan tombol-tombol tersebut dengan `List<ShopItem>` yang isinya `ShopItem()` untuk setiap tombolnya
 Memunculkan Snackbar dengan cara menambahkan widget build yang isinya ada ScaffoldMessenger yang berisi content text tersebut ketika diklik (memakai onTap)
+
 Implementasi warna yang berbeda untuk setiap tombolnya dengan cara menambahkan atribut `color` dengan tipe data `Color` di class `ShopItem`, lalu menambahkan color juga di `List<ShopItem>`, lalu mengubah baris color pada widget build sehingga menjadi `item.color`.
 
 </details>
