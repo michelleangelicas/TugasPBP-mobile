@@ -104,8 +104,11 @@ Pengguna dapat kembali ke halaman sebelumnya dengan menggunakan tombol kembali a
 Contoh Penggunaan Navigator.push():
 
 Navigator.push(
+
   context,
+
   MaterialPageRoute(builder: (context) => NewPage()),
+  
 );
 
 Dalam contoh ini, ketika kode dijalankan, NewPage() akan ditumpuk di atas halaman saat ini, dan pengguna bisa kembali ke halaman sebelumnya jika mereka memilih.
@@ -119,8 +122,11 @@ Contoh Penggunaan Navigator.pushReplacement():
 
 
 Navigator.pushReplacement(
+
   context,
+
   MaterialPageRoute(builder: (context) => HomePage()),
+
 );
 
 Dalam contoh di atas, HomePage() menggantikan halaman saat ini dalam stack dan pengguna tidak akan memiliki opsi untuk kembali ke halaman yang digantikan.
