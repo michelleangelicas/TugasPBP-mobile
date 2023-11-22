@@ -244,3 +244,115 @@ Menambahkan drawer menu dengan membuat file baru `left_drawer.dart` lalu membuat
 
 Untuk menampilkan data items yang sudah dibuat, saya masih menggunakan dummy. Dengan cara membuat models untuk setiap field terleih dahulu, lalu membuat file `items_list_page.dart` untuk tampilan laman daftar itemsnya. lalu untuk routingnya juga sama seperti yang sudah diterapkan pada Tambah Item. 
 </details>
+
+<details>
+<summary>Tugas 9</summary>
+
+# Tugas 9
+
+## Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
+Pengambilan data JSON bisa dilakukan tanpa membuat model terlebih dahulu. Dalam pemrograman, model adalah struktur yang mendefinisikan bentuk data, sering digunakan untuk memetakan data JSON ke objek dalam bahasa pemrograman tertentu. Namun, bisa mengambil data JSON dan menggunakannya secara langsung sebagai dictionary atau associative array, tergantung pada bahasa pemrograman yang digunakan.
+
+Pengambilan Data JSON Tanpa Model:
+
+* Fleksibilitas: Mengambil data langsung tanpa model memberikan fleksibilitas lebih dalam menangani data yang berubah-ubah.
+* Kemudahan: Tidak perlu mendefinisikan struktur model terlebih dahulu, yang memudahkan saat berinteraksi dengan API yang tidak dikenal atau untuk prototyping cepat.
+* Risiko: Meningkatkan risiko kesalahan saat runtime karena tidak ada pemeriksaan tipe atau validasi struktur data.
+ 
+Pengambilan Data JSON Dengan Model:
+
+* Keamanan Tipe: Model menyediakan keamanan tipe, memastikan data yang  diterima sesuai dengan apa yang diharapkan.
+* Mudah Dikelola: Dengan model, kode  menjadi lebih terstruktur dan mudah dikelola.
+* Pengembangan Skalabilitas: Model sangat membantu dalam pengembangan aplikasi berskala besar, dimana pemeliharaan kode menjadi lebih krusial.
+
+## Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.
+Cookie biasanya digunakan untuk menyimpan informasi sesi pengguna dan preferensi lainnya.
+
+Fungsi CookieRequest:
+* Manajemen Sesi: Mengelola sesi pengguna, seperti login status atau preferensi pengguna.
+* Keamanan: Meningkatkan keamanan dengan memastikan bahwa cookie dikirimkan hanya ke server yang benar.
+* Konsistensi State: Menjaga konsistensi state pengguna di seluruh aplikasi.
+
+Alasan CookieRequest Perlu Dibagikan:
+
+* Konsistensi Data: Memastikan semua komponen aplikasi mendapatkan informasi sesi yang sama.
+* Efisiensi Pengembangan: Mengurangi redundansi kode dalam mengelola cookie di berbagai bagian aplikasi.
+* Manajemen State: Memudahkan manajemen state yang terkait dengan sesi pengguna di seluruh aplikasi.
+
+## Jelaskan mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter.
+Request Data: Aplikasi Flutter membuat HTTP request ke server atau API yang menyediakan data dalam format JSON. Ini biasanya menggunakan package seperti http atau dio.
+
+Menerima Respon: Server merespon request dengan data dalam format JSON.
+
+Deserialisasi JSON: Data JSON yang diterima kemudian di-deserialisasi menjadi objek Dart. Ini bisa dilakukan secara manual dengan mengubah JSON menjadi Map dan kemudian membuat instance objek Dart, atau dengan menggunakan package seperti json_serializable yang mengotomatiskan proses ini.
+
+Penggunaan Data: Setelah di-deserialisasi, data tersebut dapat digunakan dalam aplikasi Flutter untuk ditampilkan ke pengguna, misalnya dalam widget seperti ListView, Text, dll.
+
+## Jelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.
+Input Data Pengguna: Pengguna memasukkan detail login seperti username dan password di aplikasi Flutter.
+
+Kirim Request Autentikasi: Aplikasi Flutter mengirimkan detail tersebut ke server Django, biasanya melalui HTTP POST request.
+
+Proses di Django:
+
+* Penerimaan Data: Django menerima data dan mengekstrak informasi login.
+* Validasi: Django memvalidasi data tersebut, memeriksa apakah pengguna terdaftar dan informasi yang diberikan benar.
+* Respon: Jika validasi berhasil, Django mengirimkan respon yang mungkin termasuk token autentikasi (seperti JWT) kembali ke aplikasi Flutter.
+* Penerimaan Respon di Flutter: Aplikasi Flutter menerima respon. Jika autentikasi berhasil, aplikasi mungkin menyimpan token untuk sesi pengguna.
+
+Navigasi Menu: Setelah autentikasi berhasil, aplikasi Flutter kemudian menavigasikan pengguna ke layar/menu utama atau mengaktifkan fitur tertentu yang membutuhkan autentikasi.
+
+## Sebutkan seluruh widget yang kamu pakai pada tugas ini dan jelaskan fungsinya masing-masing.
+* Scaffold: Mengatur dasar aplikasi dengan AppBar, Drawer, dan body.
+* Form: Mengatur form untuk input data item.
+* TextFormField: Widget input teks untuk mengumpulkan data, seperti nama item, jumlah, harga, dan deskripsi.
+* ElevatedButton: Tombol elevated yang digunakan untuk menyimpan data item yang dimasukkan.
+* SnackBar: Menampilkan notifikasi setelah berhasil menyimpan item atau jika terdapat kesalahan.
+* FutureBuilder: Mengelola tampilan berdasarkan status future untuk mendapatkan dan menampilkan data item secara asinkronus.
+* ListView.builder: Menampilkan daftar item dalam bentuk list yang dapat di-scroll.
+* MaterialApp: Widget root yang menentukan tema dan halaman awal aplikasi.
+* Provider: Digunakan untuk menyediakan instance CookieRequest ke seluruh aplikasi menggunakan Provider.
+* Column: Menyusun widget secara vertikal.
+* GridView.count: Menampilkan daftar item dalam grid layout.
+* ShopCard: Widget custom untuk menampilkan setiap item dalam bentuk card.
+* Material: Mengatur warna background item di dalam grid.
+* InkWell: Widget responsif terhadap sentuhan pengguna.
+* Icon: Menampilkan ikon item.
+* Text: Menampilkan nama item.
+* ListView: Menampilkan daftar opsi menu dalam drawer.
+* ListTile: Membuat opsi menu dalam drawer.
+* Navigator: Bertanggung jawab untuk menavigasi antar halaman dalam aplikasi.
+* Card: Menampilkan list barang user dalam bentuk card.
+
+## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).
+### Halaman login
+- memodif main.dart agar menyediakan CookieRequest library untuk semua child widget dengan menggunakan Provider melalui pengubahan class MyApp. Serta mengubah bagian home:  ke login page yang akan dibuat.
+- Membuat file baru dengan nama login.dart di folder screens dan mengisinya dengan program berikut.
+
+### Fitur logout
+- Membuat fungsi logout pada views.py di aplikasi authentication.
+- Membuat path url untuk fungsi logout.
+- Membuat fungsional tombol Logout di shop_card.dart
+
+### Mengintegrasikan Django Authentication dengan Flutter
+- Membuat sebuah aplikasi Django baru bernama authentication pada proyek tugas Django.
+- Menambahkan authentication ke dalam INSTALLED_APPS pada settings.py di main project Django.
+- Menambahkan django-cors-headers di dalam requirements.txt dan menjalankan pip install -r requirements.txt untuk menginstall dependencies.
+- Menambahkan corsheaders ke dalam INSTALLED_APPS pada settings.py di main project Django.
+- Menambahkan corsheaders.middleware.CorsMiddleware pada MIDDLEWARE di settings.py di main project Django.
+- Menambahkan variabel - variabel pada settings.py.
+- Membuat fungsi login di direktoriauthentication/views.py
+- Menambahkan path url untuk aplikasi authentication yang sudah dibuat pada urls.py direktori proyek.
+- Menambahkan path url untuk fungsi login yang sudah dibuat pada urls.py direktori aplikasi authentication.
+
+### Membuat Model Kustom Sesuai dengan Proyek Django
+- Membuka endpoint JSON yang sudah dibuat sebelumnya dan menyalin data ke Quicktype, dan sesuaikan pengatuhan setup name, source type, dan language hasil konversi.
+- Menyalin hasil konversi ke dalam file baru product.dart dalam folder baru di lib/models/.
+
+### Membuat Halaman yang Menampilkan Daftar Semua Item
+Membuat file baru dalam folder lib/screens/ dengan nama list_product.dart
+
+### Membuat Halaman Detail untuk Setiap Produk
+- Membuat file baru pada lib/screens/ dengan nama product_detail.dart.
+- Menambahkan kode untuk menampilkan detail produk.
+- Menambahkan onTap: () pada tiap produk agar mengarahkan ke halaman product_detail.dart jika card tiap produk ditekan.

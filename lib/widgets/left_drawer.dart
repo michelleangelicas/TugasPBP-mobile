@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:inventory/screens/items_list_page.dart';
+import 'package:inventory/screens/list_product.dart';
 import 'package:inventory/screens/menu.dart';
 import 'package:inventory/screens/shoplist_form.dart';
 
@@ -66,11 +66,10 @@ class LeftDrawer extends StatelessWidget {
             onTap: () {
               Navigator.of(context).pop(); // Menutup drawer
               Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => ItemsListPage(items: dummyItems)),
+                MaterialPageRoute(builder: (context) => const ProductPage()),
               );
             },
           ),
-
         ],
       ),
     );

@@ -1,15 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:inventory/widgets/left_drawer.dart';
 import 'package:inventory/widgets/shop_card.dart';
-import 'package:inventory/screens/items_list_page.dart';
-import 'package:inventory/models/item.dart';
+import 'package:inventory/models/product.dart';
 
-List<Item> dummyItems = [
-  Item(name: 'Pickaxe', amount: 10, description: 'To mine'),
-  Item(name: 'Gold', amount: 20, description: 'To buy items'),
-  Item(name: 'Emerald', amount: 10, description: 'Trade it to villager'),
-  // Add more items as needed
-];
+
 
 class MyHomePage extends StatelessWidget {
     MyHomePage({Key? key}) : super(key: key);
