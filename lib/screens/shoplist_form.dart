@@ -7,8 +7,8 @@ import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 
 class ShopFormPage extends StatefulWidget {
-    // final int id;
-    const ShopFormPage({super.key});
+    final int id;
+    const ShopFormPage({super.key, required this.id});
 
     @override
     State<ShopFormPage> createState() => _ShopFormPageState();
@@ -24,7 +24,7 @@ class _ShopFormPageState extends State<ShopFormPage> {
 
     @override
     Widget build(BuildContext context) {
-      // final int id = widget.id;
+      final int id = widget.id;
       final request = context.watch<CookieRequest>();
         return Scaffold(
           appBar: AppBar(
@@ -36,7 +36,7 @@ class _ShopFormPageState extends State<ShopFormPage> {
             backgroundColor: Colors.indigo,
             foregroundColor: Colors.white,
           ),
-          drawer: const LeftDrawer(),
+          drawer: LeftDrawer(id: id),
           body: Form(
             key: _formKey,
             child: SingleChildScrollView(
@@ -157,7 +157,7 @@ class _ShopFormPageState extends State<ShopFormPage> {
                             // Kirim ke Django dan tunggu respons
                             // TODO: Ganti URL dan jangan lupa tambahkan trailing slash (/) di akhir URL!
                             final response = await request.postJson(
-                            "http://127.0.0.1:8000/create-flutter/",
+                            "https://michelle-angelica21-tugas.pbp.cs.ui.ac.id/create-flutter/",
                             jsonEncode(<String, String>{
                                 'name': _name,
                                 'amount': _amount.toString(),
@@ -172,7 +172,7 @@ class _ShopFormPageState extends State<ShopFormPage> {
                                 ));
                                 Navigator.pushReplacement(
                                     context,
-                                    MaterialPageRoute(builder: (context) => MyHomePage()),
+                                    MaterialPageRoute(builder: (context) => MyHomePage(id:id)),
                                 );
                             } else {
                                 ScaffoldMessenger.of(context)

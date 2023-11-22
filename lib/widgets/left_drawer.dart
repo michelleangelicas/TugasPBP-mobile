@@ -4,7 +4,8 @@ import 'package:inventory/screens/menu.dart';
 import 'package:inventory/screens/shoplist_form.dart';
 
 class LeftDrawer extends StatelessWidget {
-  const LeftDrawer({super.key});
+  final int id;
+  const LeftDrawer({super.key, required this.id});
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +47,7 @@ class LeftDrawer extends StatelessWidget {
               Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => MyHomePage(),
+                    builder: (context) => MyHomePage(id:id),
                   ));
             },
           ),
@@ -56,7 +57,7 @@ class LeftDrawer extends StatelessWidget {
             // Bagian redirection ke ShopFormPage
             onTap: () {
               Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => ShopFormPage()),
+                MaterialPageRoute(builder: (context) => ShopFormPage(id:id)),
               );
             },
           ),
@@ -66,7 +67,7 @@ class LeftDrawer extends StatelessWidget {
             onTap: () {
               Navigator.of(context).pop(); // Menutup drawer
               Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => const ProductPage()),
+                MaterialPageRoute(builder: (context) => ProductPage(id:id)),
               );
             },
           ),

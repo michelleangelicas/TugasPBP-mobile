@@ -6,7 +6,8 @@ import 'package:inventory/screens/product_detail.dart';
 import 'package:inventory/widgets/left_drawer.dart';
 
 class ProductPage extends StatefulWidget {
-    const ProductPage({Key? key}) : super(key: key);
+    final int id;
+    const ProductPage({Key? key, required this.id}) : super(key: key);
 
     @override
     _ProductPageState createState() => _ProductPageState();
@@ -14,9 +15,10 @@ class ProductPage extends StatefulWidget {
 
 class _ProductPageState extends State<ProductPage> {
 Future<List<Product>> fetchProduct() async {
+  final int id = widget.id;
     // TODO: Ganti URL dan jangan lupa tambahkan trailing slash (/) di akhir URL!
     var url = Uri.parse(
-        'http://127.0.0.1:8000/json/');
+        'https://michelle-angelica21-tugas.pbp.cs.ui.ac.id/json/');
     var response = await http.get(
         url,
         headers: {"Content-Type": "application/json"},
@@ -28,8 +30,8 @@ Future<List<Product>> fetchProduct() async {
     // melakukan konversi data json menjadi object Product
     List<Product> list_product = [];
     for (var d in data) {
-        if (d != null) {
-            list_product.add(Product.fromJson(d));
+        if (d != null && d['fields']['user'] == id) {
+              list_product.add(Product.fromJson(d));
         }
     }
     return list_product;
@@ -37,11 +39,12 @@ Future<List<Product>> fetchProduct() async {
 
 @override
 Widget build(BuildContext context) {
+  final int id = widget.id;
     return Scaffold(
         appBar: AppBar(
           title: const Text('Product'),
         ),
-        drawer: const LeftDrawer(),
+        drawer: LeftDrawer(id:id),
         body: FutureBuilder(
             future: fetchProduct(),
             builder: (context, AsyncSnapshot snapshot) {

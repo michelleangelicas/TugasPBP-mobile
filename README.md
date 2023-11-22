@@ -356,3 +356,4 @@ Membuat file baru dalam folder lib/screens/ dengan nama list_product.dart
 - Membuat file baru pada lib/screens/ dengan nama product_detail.dart.
 - Menambahkan kode untuk menampilkan detail produk.
 - Menambahkan onTap: () pada tiap produk agar mengarahkan ke halaman product_detail.dart jika card tiap produk ditekan.
+</details>

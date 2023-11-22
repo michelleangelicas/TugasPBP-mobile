@@ -6,7 +6,8 @@ import 'package:inventory/models/product.dart';
 
 
 class MyHomePage extends StatelessWidget {
-    MyHomePage({Key? key}) : super(key: key);
+  final int id;
+    MyHomePage({Key? key, required this.id}) : super(key: key);
     final List<ShopItem> items = [
     ShopItem("Lihat Item", Icons.checklist),
     ShopItem("Tambah Item", Icons.add_shopping_cart),
@@ -23,7 +24,7 @@ class MyHomePage extends StatelessWidget {
             backgroundColor: Colors.indigo,
             foregroundColor: Colors.white,
           ),
-          drawer: const LeftDrawer(),
+          drawer: LeftDrawer(id:id),
           body: SingleChildScrollView(
             // Widget wrapper yang dapat discroll
             child: Padding(
@@ -54,7 +55,7 @@ class MyHomePage extends StatelessWidget {
                     shrinkWrap: true,
                     children: items.map((ShopItem item) {
                       // Iterasi untuk setiap item
-                      return ShopCard(item);
+                      return ShopCard(item,id);
                     }).toList(),
                   ),
                 ],
